@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+    
+<html lang="ru" >
+    
+<head>
+    
+<meta charset="utf-8">
+    
+<!--
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+-->
+    
+<!--
+<script src="jquery-3.3.1.min.js">
+    
+</script>
+-->    
+<title>
+    
+</title>
+<!--
+ 
+<link href="style.css" rel="stylesheet" type="text/css">
+-->    
+<style type="text/css">
+    
+</style>
+    
+</head>
+    
+<body>
+
+<script type="text/javascript">
+
+function arabInRim(n){
+//преобразуем число n в строку и разбиваем в массив
+var nArr = (n+"").split("");
+//получаем:
+//единицы
+var unitNum = nArr[nArr.length-1];
+
+//dozen - десятки
+var dozen = nArr[nArr.length-2];
+
+//many hundred - сотни
+var manyHundred = nArr[nArr.length-3];
+
+//thousands - тысячи
+var thousands = nArr[nArr.length-4];
+
+function units(unitNum){
+switch(unitNum){
+case "0": return "";
+break;
+case "1": return "I";
+break;
+case "2": return "II";
+break;
+case "3": return "III";
+break;
+case "4": return "IV";
+break;
+case "5": return "V";
+break;
+case "6": return "VI";
+break;
+case "7": return "VII";
+break;
+case "8": return "VIII";
+break;
+case "9": return "IX";
+break;
+default: return "";
+}
+}
+
+function doz(dozen){
+switch(dozen){
+case "0": return "";
+break;
+case "1": return "X";
+break;
+case "2": return "XX";
+break;
+case "3": return "XXX";
+break;
+case "4": return "XL";
+break;
+case "5": return "L";
+break;
+case "6": return "LX";
+break;
+case "7": return "LXX";
+break;
+case "8": return "LXXX";
+break;
+case "9": return "XC";
+break;
+default: return "";
+}
+}
+
+function hund(manyHundred){
+switch(manyHundred){
+case "0": return "";
+break;
+case "1": return "C";
+break;
+case "2": return "CC";
+break;
+case "3": return "CCC";
+break;
+case "4": return "CD";
+break;
+case "5": return "D";
+break;
+case "6": return "DC";
+break;
+case "7": return "DCC";
+break;
+case "8": return "DCCC";
+break;
+case "9": return "CM";
+break;
+default: return "";
+}
+}
+
+function thous(thousands){
+switch(thousands){
+case "0": return "";
+break;
+case "1": return "M";
+break;
+case "2": return "MM";
+break;
+case "3": return "MMM";
+break;
+default: return "";
+}
+}
+return thous(thousands)+hund(manyHundred)+doz(dozen)+units(unitNum);
+}
+
+function printRim(){
+document.body.innerHTML="арабское число: "+n+"<br>"+
+"римское число: "+arabInRim(n);
+n++;
+}
+n=1;
+setInterval(printRim,1);
+
+
+
+
+
+
+</script>
+</body>
+</html>
